@@ -21,85 +21,84 @@ class _RegisterPageState extends State<RegisterPage> {
       resizeToAvoidBottomPadding: false,
       body: Container(
         padding:
-            EdgeInsets.only(top: 100.0, right: 20.0, left: 20.0, bottom: 20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Fantasy',
-              style: TextStyle(
-                  fontSize: 50.0,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: "Pacifico"),
-            ),
-            SizedBox(
-              height: 40.0,
-            ),
-            Text(
-              "Create your Account",
-              style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).primaryColor),
-            ),
-            SizedBox(
-              height: 40.0,
-            ),
-            buildTextField("First Name"),
-            SizedBox(
-              height: 20.0,
-            ),
-            buildTextField("Last Name"),
-            SizedBox(
-              height: 20.0,
-            ),
-            buildTextField("Email"),
-            SizedBox(
-              height: 20.0,
-            ),
-            buildTextField("Password"),
-            SizedBox(
-              height: 20.0,
-            ),
-            buildTextField("Confirm Password"),
-            SizedBox(
-              height: 20.0,
-            ),
-            SizedBox(height: 30.0),
-            buildButtonContainer(),
-            SizedBox(
-              height: 10.0,
-            ),
-            Container(
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text("Already have an account? "),
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    InkWell(
-                      child: Text(
-                        'Sign In',
-                        style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                        ),
+            EdgeInsets.only(top: 80.0, right: 20.0, left: 20.0, bottom: 10.0),
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Fantasy',
+                style: TextStyle(
+                    fontSize: 50.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Pacifico"),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Text(
+                "Create your Account",
+                style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).primaryColor),
+              ),
+              SizedBox(
+                height: 25.0,
+              ),
+              buildTextField("First Name"),
+              SizedBox(
+                height: 20.0,
+              ),
+              buildTextField("Last Name"),
+              SizedBox(
+                height: 20.0,
+              ),
+              buildTextField("Email"),
+              SizedBox(
+                height: 20.0,
+              ),
+              buildTextField("Password"),
+              SizedBox(
+                height: 20.0,
+              ),
+              buildTextField("Confirm Password"),
+              SizedBox(height: 40.0),
+              buildRegisterBtn(),
+              SizedBox(
+                height: 10.0,
+              ),
+              Container(
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text("Already have an account? "),
+                      SizedBox(
+                        width: 10.0,
                       ),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginPage(),
+                      InkWell(
+                        child: Text(
+                          'Sign In',
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
                           ),
-                        );
-                      },
-                    ),
-                  ],
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginPage(),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -138,24 +137,29 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  Widget buildButtonContainer() {
+  Widget buildRegisterBtn() {
     return Container(
-      height: 56.0,
+      height: 50.0,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(23.0),
-        gradient: LinearGradient(
-            colors: [Color(0xFFFB415B), Color(0xFFEE5623)],
-            begin: Alignment.centerRight,
-            end: Alignment.centerLeft),
+        gradient: LinearGradient(colors: [
+          Color(0xFFFB415B),
+          Color(0xFFEE5623),
+        ], begin: Alignment.centerRight, end: Alignment.centerLeft),
       ),
-      child: Center(
-        child: Text(
-          "Sign Up",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 18.0,
-          ),
+      child: RaisedButton(
+        color: Color(0xFFFB415B),
+        elevation: 3.0,
+        onPressed: () {
+          print('SIGN UP BUTTON');
+        },
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        child: const Text(
+          'Sign Up',
+          style: TextStyle(fontSize: 25, color: Colors.white),
         ),
       ),
     );

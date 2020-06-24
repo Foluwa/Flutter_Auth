@@ -101,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             SizedBox(height: 50.0),
-            buildButtonContainer(),
+            buildLoginBtn(),
             SizedBox(
               height: 10.0,
             ),
@@ -165,24 +165,29 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget buildButtonContainer() {
+  Widget buildLoginBtn() {
     return Container(
-      height: 56.0,
+      height: 50.0,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(23.0),
-        gradient: LinearGradient(
-            colors: [Color(0xFFFB415B), Color(0xFFEE5623)],
-            begin: Alignment.centerRight,
-            end: Alignment.centerLeft),
+        gradient: LinearGradient(colors: [
+          Color(0xFFFB415B),
+          Color(0xFFEE5623),
+        ], begin: Alignment.centerRight, end: Alignment.centerLeft),
       ),
-      child: Center(
-        child: Text(
-          "Sign In",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 18.0,
-          ),
+      child: RaisedButton(
+        color: Color(0xFFFB415B),
+        elevation: 3.0,
+        onPressed: () {
+          print('SIGN IN BUTTON');
+        },
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        child: const Text(
+          'Sign IN',
+          style: TextStyle(fontSize: 25, color: Colors.white),
         ),
       ),
     );
